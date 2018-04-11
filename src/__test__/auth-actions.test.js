@@ -28,28 +28,5 @@ describe('Auth Actions', () => {
     })
   });
 
-  test('signupRequest should return a token', done => {
-    superagent.post(`http://localhost:3000/signup`)
-    .send(mockUser)
-    .end((err, res) => {
-      expect(res.text).toBeTruthy();
-      expect(typeof res.text).toEqual('string');
-      expect(err).toEqual(null);
-      tempUser = mockUser;
-      console.log('signup:::::', tempUser);
-      done();
-    });
-  });
-
-  test('loginRequest should return a token', done => {
-    superagent.get(`http://localhost:3000/login`)
-    .auth(tempUser.username, tempUser.password)
-    .end((err, res) => {
-      expect(res.text).toBeTruthy();
-      expect(typeof res.text).toEqual('string');
-      expect(err).toEqual(null);
-      console.log('login:::::', tempUser);
-      done();
-    });
-  });
+  // NOTE: async tests were located here
 });
